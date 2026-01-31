@@ -360,5 +360,10 @@ Since you're practicing coding problems daily, learning:
 will make many problems easy.
 
 If you want, I can next explain XOR with small number examples visually 👍
-
-
+#problem
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        result=0
+        for i in s+t:
+            result^=ord(i)
+        return chr(result)
