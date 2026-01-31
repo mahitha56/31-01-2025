@@ -1,13 +1,9 @@
 # 31-01-2025
 #Theory
 Anagram means two words (or strings) have the same characters with the same frequency, usually same length, but arranged in a different order.
-
 ✅ Simple definition
-
 Two strings are anagrams if:
-
 Lengths are equal
-
 Characters are the same
 
 Order can be different
