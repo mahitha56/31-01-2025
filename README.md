@@ -142,6 +142,223 @@ class Solution:
             if c[j]==1:
                 return i
         return -1
+#problem of find difference
+s = original string
+t = shuffled(s) + one extra letter
+So:
 
+👉 All letters same
+👉 Only one extra letter is added
+
+We must find that extra letter.
+
+✅ Example
+s = "abcd"
+t = "abcde"
+Extra letter → e
+
+s = "aabb"
+t = "ababb"
+Extra letter → b
+
+🔥 Best Solutions (3 ways)
+✅ Method 1 — Counter (Easiest for beginners ⭐)
+Since you're learning Counter, this is perfect for you.
+
+from collections import Counter
+
+s = "abcd"
+t = "abcde"
+
+cs = Counter(s)
+ct = Counter(t)
+
+for ch in ct:
+    if ct[ch] != cs[ch]:
+        print(ch)
+Why works?
+s → a:1 b:1 c:1 d:1
+t → a:1 b:1 c:1 d:1 e:1
+Only e is extra.
+
+✅ Method 2 — Math sum trick (fastest ⚡)
+Convert characters → ASCII numbers.
+
+s = "abcd"
+t = "abcde"
+
+res = sum(ord(c) for c in t) - sum(ord(c) for c in s)
+
+print(chr(res))
+Why?
+extra char ASCII remains
+Very efficient 🚀
+
+✅ Method 3 — XOR trick (interview favorite ⭐⭐⭐)
+This is the smartest one.
+
+s = "abcd"
+t = "abcde"
+
+result = 0
+
+for c in s + t:
+    result ^= ord(c)
+
+print(chr(result))
+Why XOR works?
+Properties:
+
+a ^ a = 0
+0 ^ b = b
+So:
+
+a^b^c^d ^ a^b^c^d ^ e
+= e
+All cancel → only extra remains 😎
+
+✅ Which should YOU use?
+Since you're practicing basics:
+
+👉 Use:
+
+Counter method
+After comfortable:
+👉 Learn XOR trick
+
+✅ Final recommended code (clean)
+from collections import Counter
+
+def findTheDifference(s, t):
+    return list(Counter(t) - Counter(s))[0]
+If you want, I can next:
+✅ dry run with example
+✅ explain XOR visually
+✅ give similar practice problems
+
+Just tell 😊
+
+You said:
+for c in s + t:
+    result ^= ord(c) why we add s+t  and also tell me ord()
+ChatGPT said:
+Great question 👍
+This XOR trick is very famous in interviews, so understanding it clearly will help you a lot.
+
+Let’s go slowly and simply 😊
+
+✅ First question:
+Why for c in s + t ?
+s + t means:
+Concatenate both strings
+
+Example:
+
+s = "abc"
+t = "abce"
+
+s + t
+Result:
+
+"abcabce"
+Why combine both?
+Because we want to:
+
+👉 XOR all characters of s
+👉 XOR all characters of t
+
+Together.
+
+Instead of writing:
+
+for c in s:
+for c in t:
+We simply do:
+
+for c in s + t:
+Cleaner code ✅
+
+✅ Main Logic (IMPORTANT)
+Remember XOR properties:
+
+a ^ a = 0
+0 ^ b = b
+Example
+s = "abc"
+t = "abce"
+Combined:
+
+abcabce
+Now XOR:
+
+a ^ b ^ c ^ a ^ b ^ c ^ e
+Cancel pairs:
+
+(a ^ a) = 0
+(b ^ b) = 0
+(c ^ c) = 0
+Left with:
+
+0 ^ e = e
+So result = e
+
+✅ Second question:
+What is ord() ?
+ord() → gives ASCII (number) value of character
+Example:
+
+print(ord('a'))  # 97
+print(ord('b'))  # 98
+print(ord('A'))  # 65
+Why we need ord()?
+Because:
+
+❌ XOR works only on numbers
+✅ Not characters
+
+So we convert:
+
+'a' → 97
+'b' → 98
+Then XOR works.
+
+✅ Reverse of ord()
+Use chr()
+
+print(chr(97))  # 'a'
+✅ Full dry run
+s = "a"
+t = "aa"
+ASCII:
+
+a = 97
+XOR:
+
+97 ^ 97 ^ 97
+= 0 ^ 97
+= 97
+Then:
+
+chr(97) = 'a'
+Extra letter found ✅
+
+✅ Final code again
+result = 0
+
+for c in s + t:
+    result ^= ord(c)
+
+print(chr(result))
+✅ Quick memory tip
+ord() → char → number
+chr() → number → char
+Since you're practicing coding problems daily, learning:
+✔ Counter
+✔ XOR
+✔ ord/chr
+
+will make many problems easy.
+
+If you want, I can next explain XOR with small number examples visually 👍
 
 
