@@ -29,7 +29,6 @@ Method 2: dictionary/count (faster)
 from collections import Counter
 print(Counter(s) == Counter(t))
 Interview tip
-
-
 👉 Sorting = O(n log n)
 👉 Counter/HashMap = O(n) (better)
+
