@@ -31,4 +31,21 @@ print(Counter(s) == Counter(t))
 Interview tip
 👉 Sorting = O(n log n)
 👉 Counter/HashMap = O(n) (better)
+#problem
+from collections import Counter
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        # if len(s)!=len(t):
+        #     return False
+        # s1=sorted(s)
+        # s2=sorted(t)
+        # for i,j in zip(s1,s2):
+        #     if i!=j:
+        #         return False
+        #         break
+        # return True
+        return Counter(s)==Counter(t)
 
+
+
+#
