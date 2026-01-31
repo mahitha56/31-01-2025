@@ -50,40 +50,23 @@ class Solution:
 
 #theory for unique character
 Since you’re learning Python and practicing problems like anagram, duplicates, frequency, Counter is VERY useful for you.
-
 ✅ What is Counter?
-
 Counter counts how many times each element appears.
-
 It is from:
-
 from collections import Counter
-
 ✅ Simple Example
 from collections import Counter
-
 s = "banana"
 print(Counter(s))
-
-
 Output:
-
 Counter({'a': 3, 'n': 2, 'b': 1})
-
-
 👉 Meaning:
-
 a → 3 times
 n → 2 times
-b → 1 time
-
-
+b → 1 times
 So it automatically creates a frequency dictionary.
-
 ✅ Same using dictionary (manual way ❌ long)
-
 Without Counter:
-
 d = {}
 for ch in "banana":
     if ch in d:
@@ -92,98 +75,59 @@ for ch in "banana":
         d[ch] = 1
 
 print(d)
-
-
 More code 😓
-
 ✅ With Counter (easy ✅)
 Counter("banana")
-
-
 Done 🎉
-
 ✅ Uses of Counter
 1️⃣ Anagram check (very common)
 from collections import Counter
-
 s = "anagram"
 t = "nagaram"
-
 print(Counter(s) == Counter(t))
-
-
 Why works?
 Because both have same counts.
-
 2️⃣ Find duplicates
 nums = [1,2,3,1,2,1]
-
 c = Counter(nums)
 print(c)
-
-
 Output:
-
 Counter({1: 3, 2: 2, 3: 1})
-
-
 Now you know which repeats.
-
 3️⃣ Most frequent element
 c = Counter([1,2,2,3,3,3])
 print(c.most_common(1))
-
-
 Output:
-
 [(3, 3)]
-
-
 👉 number 3 appears 3 times
-
 4️⃣ Count words
 text = "hi hello hi bye hello hi"
 words = text.split()
-
 print(Counter(words))
-
-
 Output:
-
 Counter({'hi': 3, 'hello': 2, 'bye': 1})
-
 ✅ How Counter looks internally?
-
 It is basically:
-
 Counter = dict + counting
-
-
 Like:
-
 {'a':3, 'b':2}
-
 🔥 When YOU should use Counter
-
 Since you’re solving coding problems, use Counter when:
 ✅ counting frequency
 ✅ anagram problems
 ✅ duplicates
 ✅ most common elements
 ✅ histogram type problems
-
 ✅ Quick summary
-
 👉 Counter = automatic frequency dictionary
-
 Counter("aabbc")
 → {'a':2, 'b':2, 'c':1}
-
-
 If you'd like, I can next explain:
 ✅ most_common()
 ✅ elements()
 ✅ subtract()
 ✅ or practice problems using Counter
+
+
 
 
